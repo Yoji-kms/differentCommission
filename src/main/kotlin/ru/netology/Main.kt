@@ -33,6 +33,6 @@ fun commissionPennies(
             if (prevTransactionAmount + currentTransactionAmount < maestroMaxFreeTransaction) 0
             else ((currentTransactionAmount * maestroCommissionPercent + maestroAdditionalCommission) * 100).roundToInt()
         PaymentType.MIR, PaymentType.VISA ->
-            max(visaMinCommission * 0, (currentTransactionAmount * visaCommissionPercent * 100).roundToInt())
+            max(visaMinCommission, (currentTransactionAmount * visaCommissionPercent * 100).roundToInt())
     }
 }
